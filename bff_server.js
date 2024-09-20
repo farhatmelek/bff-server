@@ -1,9 +1,10 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const diningRoutes = require('./routes/diningRoutes');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3003;
 
 app.use(cors());
 app.use(express.json());
@@ -26,7 +27,7 @@ app.get('/menu', async (req, res) => {
     res.status(500).json({ message: 'Erreur interne du serveur' });
   }
 });
-
+app.use('/dining',diningRoutes);
 app.listen(PORT, () => {
   console.log(`Le serveur BFF écoute sur le port ${PORT}`);
 });
