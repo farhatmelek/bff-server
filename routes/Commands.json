@@ -1,0 +1,172 @@
+[
+  {
+    "commandId": 1234,
+    "tables": [
+      {
+        "table": "66f0069108fb778e348bb92f",
+        "tablePaid": true,
+        "tableNumber": 1,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item001",
+                "quantity": 2,
+                "price": 12.99
+              },
+              {
+                "itemId": "item002",
+                "quantity": 1,
+                "price": 1.99
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item003",
+                "quantity": 1,
+                "price": 10.5
+              },
+              {
+                "itemId": "item004",
+                "quantity": 2,
+                "price": 0.99
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f0069108fb778e348bb933",
+        "tablePaid": true,
+        "tableNumber": 2,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f0069108fb778e348bb937",
+        "tablePaid": true,
+        "tableNumber": 3,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f0247308fb778e348bb959",
+        "tablePaid": true,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f0247308fb778e348bb95d",
+        "tablePaid": true,
+        "tableNumber": 5,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f0247308fb778e348bb965",
+        "tablePaid": true,
+        "tableNumber": 6,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f108d56083a428d27d828f",
+        "tablePaid": false,
+        "tableNumber": 7,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": "66f108d56083a428d27d8293",
+        "tablePaid": true,
+        "tableNumber": 8,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "itemId": "item005",
+                "quantity": 1,
+                "price": 8.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
