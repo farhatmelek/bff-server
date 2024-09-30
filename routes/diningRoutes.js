@@ -23,7 +23,6 @@ function writeData(data) {
 const router = express.Router();
 const serverLink = "http://localhost:3001";
 router.get('/tables', async (req, res) => {
-    console.log("tablesssss");
     const response = await axios.get(serverLink+'/tables');   
 
     
@@ -83,8 +82,6 @@ router.post('/payment/byTable', (req, res) => {
         
       });
       
-      console.log(bill);
-      bill.forEach(el=>console.log(el.clients))
       res.json({"tablesBill":bill,"commandTotal":commandTotal});
     } else {
       res.status(404).json({ message: 'Command not found' });
@@ -95,7 +92,6 @@ router.post('/payment/process/byTables', async (req,res)=>{
   const commandId  = req.body.commandId;
 
   const data = readData();
-  console.log(`paid tables ${paidTables}`);
   
   // Find the command by commandId
   const command = data.find(item => item.commandId == commandId);
@@ -103,7 +99,6 @@ router.post('/payment/process/byTables', async (req,res)=>{
   command.tables.filter(item=>paidTables.includes(item.tableNumber))
                 .forEach(async(item)=>{
                   item.tablePaid = true;
-                  console.log(item.tableNumber);
                   await axios.post(serverLink+"/tableOrders/"+item.table+"/bill");
                 });
   writeData(data);
@@ -115,9 +110,7 @@ router.get("/freeTables",async (req,res)=>{
     const resp = await axios.get(serverLink+"/tableOrders");
     const orders = resp.data;
     for (let index = 0; index < orders.length; index++) {
-        // console.log(orders[index]["_id"])
-        // console.log(orders[index])
-        // console.log(orders[index]["billed"])
+
         if(orders[index]["billed"]==null)
             await axios.post(serverLink+"/tableOrders/"+orders[index]["_id"]+"/bill");
         
@@ -125,12 +118,76 @@ router.get("/freeTables",async (req,res)=>{
 
 });
 
-router.post("/payment",async(req,res)=>{
-    var tables = req.body.tables;
-    var clients = req.body.clients;
+router.post('/add-command', async (req, res) => {
+  const tablesNumber = req.body.tablesNumber; // Expecting an array of table IDs
+  let customersCount = req.body.customersCount; // Change const to let
 
-})
+  // Validate input
+  if (!Array.isArray(tablesNumber) || tablesNumber.some(num => typeof num !== 'number') || typeof customersCount !== 'number') {
+    return res.status(400).json({ error: 'Invalid input' });
+  }
+
+  // Read existing commands
+  const commands = readData(); // Assuming readData() reads from your JSON file
+  const commandId = generateCommandId();
+
+  // Create new command
+  const newCommand = {
+    commandId,
+    tables: []
+  };
+
+  // Calculate how many clients can fit per table
+  const clientsPerTable = 4;
+
+  // Loop through tables and add clients
+  for (let i = 0; i < tablesNumber.length; i++) {
+    const tableNumber = tablesNumber[i];
+    const clientsForTable = Math.min(clientsPerTable, customersCount); // 4 clients max per table
+    const body = {
+      "tableNumber": tableNumber, // Use the actual table ID in the request
+      "customersCount": clientsForTable
+    };
+    const response = await axios.post(serverLink + '/tableOrders', body);
+    // Create a table entry in the command
+    newCommand.tables.push({
+      table: response.data["_id"], // Use the actual table ID
+      tablePaid: false,
+      tableNumber: tableNumber, // Assuming tableNumber is 1-indexed
+      clients: []
+    });
+
+    // Assign clients to the table
+    var clientNumber = 1;
+    for (let k = 0; k < clientsForTable; k++) {
+      newCommand.tables[newCommand.tables.length - 1].clients.push({
+        client: (clientNumber++).toString(),
+        clientPaid: false,
+        items: [] // You can add items if needed
+      });
+    }
+
+    // Decrease remaining customersCount
+    customersCount -= clientsForTable;
+
+    // If needed, make an Axios request for each table after assigning clients
+    // Example: You can post to a separate server or endpoint if required
 
 
+    // Handle the response from the server if needed
+  }
+
+  // Add new command to commands array
+  commands.push(newCommand);
+
+  // Write updated commands back to the JSON file
+  writeData(commands); // Assuming writeData() writes to your JSON file
+
+  res.status(201).json(newCommand); // Return the newly created command
+});
+
+  const generateCommandId = () => {
+    return Math.floor(Math.random() * 10000) + 1; // Adjust the range as needed
+  };
 
 module.exports = router;
