@@ -32,7 +32,7 @@ app.post('/order', async (req, res) => {
   try {
     console.log('Requête au back-end pour passer une commande');
     const order = req.body;
-    const data = readData();
+    const data = readData(dataFilePath);
 
     const command = data.find(item => item.commandId === order.orderNumber);
 
@@ -51,13 +51,72 @@ app.post('/order', async (req, res) => {
     }
 
     console.log('items:', data.find(item => item.commandId === order.orderNumber).tables[0].clients[0].items);
-    writeData(data);
+    writeData(data, dataFilePath);
 
     // Répondre avec un statut de succès
     res.status(201).json({ message: "Commande mise à jour avec succès" });
   } catch (error) {
     console.error('Erreur lors de la mise à jour de la commande:', error);
     res.status(500).json({ message: "Erreur interne du serveur" });
+  }
+});
+
+
+app.post('/validateOrder',async (req, res) => {
+  try {
+
+  const orderId = req.body;
+  console.log('Commande à valider:', orderId);
+
+  let ordersData = readData(dataFilePath);
+  console.log('Commandes:', ordersData);
+  let reservationsData = readData(dataReservationFilePath);
+  console.log('Réservations:', reservationsData);
+  console.log('orderId:', orderId.commandId);
+
+  // delete the reservation from the reservation file
+  reservationsData = reservationsData.filter(reservation => reservation.commandId !== orderId.commandId);
+  console.log('Réservations après suppression:', reservationsData);
+  writeData(reservationsData, dataReservationFilePath);
+  console.log('Commande à valider:', ordersData.find(order => order.commandId === orderId));
+
+  let order = ordersData.find(order => order.commandId === orderId.commandId);
+  console.log('Commande à valider:', order);
+  for (let table of order.tables) {
+    let clientsForTable = table.clients.length;
+    let tableNumber = table.tableNumber;
+    const body = {
+      "tableNumber": tableNumber,
+      "customersCount": clientsForTable
+    };
+    const response = await axios.post( 'http://localhost:9500/dining/tableOrders', body);
+    table.table= response.data["_id"]
+  }
+
+    writeData(ordersData, dataFilePath);
+    res.status(201).json({ message: "Commande validée avec succès" });
+  } catch (error) {
+    console.error('Erreur lors de la validation de la commande:', error);
+    res.status(500).json({ message: "Erreur interne du serveur" });
+  }
+});
+
+app.get('/tables', async (req, res) => {
+  try {
+    const tempReservation = readData(dataReservationFilePath);
+    console.log('Requête au back-end pour récupérer les tables');
+    const response = await axios.get('http://localhost:9500/dining/tables');
+
+
+    response.data.forEach(table => {
+      table.taken = tempReservation.some(reservation => reservation.tables.some(reservedTable => reservedTable.tableNumber === table.number));
+    });
+
+    console.log('Tables:', response.data);
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error('Erreur lors de la requête au back-end:', error);
+    res.status(500).json({message: 'Erreur interne du serveur'});
   }
 });
 
@@ -68,14 +127,15 @@ app.listen(PORT, () => {
 
 
 const dataFilePath = path.join(__dirname, './routes/Commands.json');
+const dataReservationFilePath = path.join(__dirname, './routes/reservation.json');
 
-
-function readData() {
-  const data = fs.readFileSync(dataFilePath, 'utf-8');
+// Function to read JSON file
+function readData(path) {
+  const data = fs.readFileSync(path, 'utf-8');
   return JSON.parse(data);
 }
 
-
-function writeData(data) {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+// Function to write to JSON file
+function writeData(data, path) {
+  fs.writeFileSync(path, JSON.stringify(data, null, 2), 'utf-8');
 }

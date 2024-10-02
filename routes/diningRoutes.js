@@ -8,16 +8,17 @@ const path = require('path');
 
 // Path to the JSON file
 const dataFilePath = path.join(__dirname, 'Commands.json');
+const dataReservationFilePath = path.join(__dirname, 'reservation.json');
 
 // Function to read JSON file
-function readData() {
-    const data = fs.readFileSync(dataFilePath, 'utf-8');
+function readData(path) {
+    const data = fs.readFileSync(path, 'utf-8');
     return JSON.parse(data);
 }
 
   // Function to write to JSON file
-function writeData(data) {
-    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+function writeData(data, path) {
+    fs.writeFileSync(path, JSON.stringify(data, null, 2), 'utf-8');
 }
 
 const router = express.Router();
@@ -33,7 +34,7 @@ router.get('/tables', async (req, res) => {
 //the api didnt contain some additional data that we needed during the payment
 router.get('/command/:commandId/tables', (req, res) => {
     const { commandId } = req.params;
-    const data = readData();
+    const data = readData(dataFilePath);
   
     // Find the command by commandId
     const command = data.find(item => item.commandId == commandId);
@@ -49,7 +50,7 @@ router.post('/payment/byTable', (req, res) => {
     var selectedTables = []
     selectedTables = req.body.selectedTables;
 
-    const data = readData();
+    const data = readData(dataFilePath);
   
     // Find the command by commandId
     const command = data.find(item => item.commandId === commandId);
@@ -92,7 +93,7 @@ router.post('/payment/process/byTables', async (req,res)=>{
   const paidTables = req.body.paidTables;
   const commandId  = req.body.commandId;
 
-  const data = readData();
+  const data = readData(dataFilePath);
   
   // Find the command by commandId
   const command = data.find(item => item.commandId == commandId);
@@ -102,7 +103,7 @@ router.post('/payment/process/byTables', async (req,res)=>{
                   item.tablePaid = true;
                   await axios.post(serverLink+"/tableOrders/"+item.table+"/bill");
                 });
-  writeData(data);
+  writeData(data,dataFilePath);
 
   res.status(200).json({ message: 'Tables marked as paid successfully' });
 
@@ -129,7 +130,8 @@ router.post('/add-command', async (req, res) => {
   }
 
   // Read existing commands
-  const commands = readData(); // Assuming readData() reads from your JSON file
+  const commands = readData(dataFilePath);
+  const reservations = readData(dataReservationFilePath);
   const commandId = generateCommandId();
 
   // Create new command
@@ -137,6 +139,11 @@ router.post('/add-command', async (req, res) => {
     commandId,
     tables: []
   };
+  let newReservation = {
+    commandId,
+    tables: []
+  };
+
 
   // Calculate how many clients can fit per table
   const clientsPerTable = 4;
@@ -145,18 +152,22 @@ router.post('/add-command', async (req, res) => {
   for (let i = 0; i < tablesNumber.length; i++) {
     const tableNumber = tablesNumber[i];
     const clientsForTable = Math.min(clientsPerTable, customersCount); // 4 clients max per table
-    const body = {
+    /*const body = {
       "tableNumber": tableNumber, // Use the actual table ID in the request
       "customersCount": clientsForTable
-    };
-    const response = await axios.post(serverLink + '/tableOrders', body);
+    };*/
+    //const response = await axios.post(serverLink + '/tableOrders', body);
     // Create a table entry in the command
     newCommand.tables.push({
-      table: response.data["_id"], // Use the actual table ID
+      //table: response.data["_id"], // Use the actual table ID
       tablePaid: false,
       tableNumber: tableNumber, // Assuming tableNumber is 1-indexed
       clients: []
     });
+    newReservation.tables.push({
+        tableNumber: tableNumber,
+    });
+
 
     // Assign clients to the table
     var clientNumber = 1;
@@ -180,9 +191,11 @@ router.post('/add-command', async (req, res) => {
 
   // Add new command to commands array
   commands.push(newCommand);
+  reservations.push(newReservation);
 
   // Write updated commands back to the JSON file
-  writeData(commands); // Assuming writeData() writes to your JSON file
+  writeData(commands,dataFilePath);
+  writeData(reservations,dataReservationFilePath);
 
   res.status(201).json(newCommand); // Return the newly created command
 });
