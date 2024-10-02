@@ -159,14 +159,7 @@ router.post('/add-command', async (req, res) => {
   for (let i = 0; i < tablesNumber.length; i++) {
     const tableNumber = tablesNumber[i];
     const clientsForTable = Math.min(clientsPerTable, customersCount); // 4 clients max per table
-    /*const body = {
-      "tableNumber": tableNumber, // Use the actual table ID in the request
-      "customersCount": clientsForTable
-    };*/
-    //const response = await axios.post(serverLink + '/tableOrders', body);
-    // Create a table entry in the command
     newCommand.tables.push({
-      //table: response.data["_id"], // Use the actual table ID
       tablePaid: false,
       tableNumber: tableNumber,
       clients: []
@@ -192,7 +185,6 @@ router.post('/add-command', async (req, res) => {
   commands.push(newCommand);
   reservations.push(newReservation);
 
-  // Write updated commands back to the JSON file
   writeData(commands,dataFilePath);
   writeData(reservations,dataReservationFilePath);
 
