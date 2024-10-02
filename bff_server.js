@@ -109,7 +109,11 @@ app.get('/tables', async (req, res) => {
 
 
     response.data.forEach(table => {
-      table.taken = tempReservation.some(reservation => reservation.tables.some(reservedTable => reservedTable.tableNumber === table.number));
+      if (!table.taken) {
+        table.taken = tempReservation.some(reservation =>
+            reservation.tables.some(reservedTable => reservedTable.tableNumber === table.number)
+        );
+      }
     });
 
     console.log('Tables:', response.data);

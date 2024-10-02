@@ -170,599 +170,122 @@
     ]
   },
   {
-    "commandId": 8907,
+    "commandId": 3821,
     "tables": [
       {
-        "table": "66fd23c27177444a54c61c5f",
         "tablePaid": false,
         "tableNumber": 1,
         "clients": [
           {
             "client": "1",
             "clientPaid": false,
-            "items": []
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
           },
           {
             "client": "2",
             "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
           }
-        ]
-      },
+        ],
+        "table": "66fdd5ad0957f13982263fb1"
+      }
+    ]
+  },
+  {
+    "commandId": 47,
+    "tables": [
       {
-        "table": "66fd23c27177444a54c61c63",
         "tablePaid": false,
         "tableNumber": 2,
         "clients": [
           {
             "client": "1",
             "clientPaid": false,
-            "items": []
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              },
+              {
+                "_id": "66fc3a99057add0cf0b96581",
+                "fullName": "Ice Tea (33cl)",
+                "shortName": "ice tea",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2022/04/11/08/52/iced-tea-7125271_960_720.jpg",
+                "quantity": 1
+              }
+            ]
           },
           {
             "client": "2",
             "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
           }
-        ]
-      },
+        ],
+        "table": "66fdd7b20957f13982263fd3"
+      }
+    ]
+  },
+  {
+    "commandId": 9960,
+    "tables": [
       {
-        "table": "66fd23c27177444a54c61c67",
         "tablePaid": false,
         "tableNumber": 3,
         "clients": [
           {
             "client": "1",
             "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96569",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
           }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 7054,
-    "tables": [
-      {
-        "table": "66fd27537177444a54c61c88",
-        "tablePaid": true,
-        "tableNumber": 1,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd27537177444a54c61c8c",
-        "tablePaid": true,
-        "tableNumber": 2,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd27537177444a54c61c90",
-        "tablePaid": true,
-        "tableNumber": 3,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": true,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": true,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": true,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": true,
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 7990,
-    "tables": [
-      {
-        "table": "66fd2ac57177444a54c61cb8",
-        "tablePaid": false,
-        "tableNumber": 1,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd2ac57177444a54c61cbc",
-        "tablePaid": false,
-        "tableNumber": 2,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd2ac57177444a54c61cc0",
-        "tablePaid": false,
-        "tableNumber": 3,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 9862,
-    "tables": [
-      {
-        "table": "66fd2b477177444a54c61cd3",
-        "tablePaid": true,
-        "tableNumber": 4,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd2b477177444a54c61cd7",
-        "tablePaid": true,
-        "tableNumber": 5,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd2b477177444a54c61cdb",
-        "tablePaid": true,
-        "tableNumber": 6,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 237,
-    "tables": [
-      {
-        "table": "66fd36a07177444a54c61d0f",
-        "tablePaid": false,
-        "tableNumber": 4,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd36a07177444a54c61d13",
-        "tablePaid": false,
-        "tableNumber": 6,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd36a07177444a54c61d17",
-        "tablePaid": false,
-        "tableNumber": 8,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 1863,
-    "tables": [
-      {
-        "table": "66fd36b57177444a54c61d23",
-        "tablePaid": false,
-        "tableNumber": 11,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd36b57177444a54c61d27",
-        "tablePaid": false,
-        "tableNumber": 13,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fd36b57177444a54c61d2b",
-        "tablePaid": false,
-        "tableNumber": 15,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "commandId": 4116,
-    "tables": [
-      {
-        "table": "66fdad957177444a54c62428",
-        "tablePaid": false,
-        "tableNumber": 5,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fdad957177444a54c6242c",
-        "tablePaid": false,
-        "tableNumber": 7,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
-      },
-      {
-        "table": "66fdad957177444a54c62430",
-        "tablePaid": false,
-        "tableNumber": 9,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "3",
-            "clientPaid": false,
-            "items": []
-          },
-          {
-            "client": "4",
-            "clientPaid": false,
-            "items": []
-          }
-        ]
+        ],
+        "table": "66fdd7d50957f13982263fdd"
       }
     ]
   }
