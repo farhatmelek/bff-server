@@ -13,23 +13,22 @@ const dataFilePath = path.join(__dirname, 'Commands.json');
 function readData() {
     const data = fs.readFileSync(dataFilePath, 'utf-8');
     return JSON.parse(data);
-  }
+}
 
   // Function to write to JSON file
 function writeData(data) {
     fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
-  }
+}
 
 const router = express.Router();
 const serverLink = "http://localhost:3001";
+
+//list all Tables
 router.get('/tables', async (req, res) => {
-    const response = await axios.get(serverLink+'/tables');   
-
-    
+    const response = await axios.get(serverLink+'/tables');
     res.status(200).json(response.data);
-
-
 });
+
 //this not fake data, wa gathered this data during the previous steps
 //the api didnt contain some additional data that we needed during the payment
 router.get('/command/:commandId/tables', (req, res) => {
@@ -43,7 +42,8 @@ router.get('/command/:commandId/tables', (req, res) => {
     } else {
       res.status(404).json({ message: 'Command not found' });
     }
-  });
+});
+
 router.post('/payment/byTable', (req, res) => {
     const commandId  = req.body.commandId;
     var selectedTables = []
@@ -52,7 +52,7 @@ router.post('/payment/byTable', (req, res) => {
     const data = readData();
   
     // Find the command by commandId
-    const command = data.find(item => item.commandId == commandId);
+    const command = data.find(item => item.commandId === commandId);
     if (command) {
       
       var bill = [];
@@ -86,7 +86,8 @@ router.post('/payment/byTable', (req, res) => {
     } else {
       res.status(404).json({ message: 'Command not found' });
     }
-  });
+});
+
 router.post('/payment/process/byTables', async (req,res)=>{
   const paidTables = req.body.paidTables;
   const commandId  = req.body.commandId;
