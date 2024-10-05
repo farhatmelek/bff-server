@@ -197,7 +197,7 @@ router.post('/pay-clients',async (req, res) => {
     return res.status(400).json({ error: 'Invalid input data' });
   }
 
-  let commands = readData();
+  let commands = readData(dataFilePath);
 
   const command = commands.find(c => c.commandId === commandId);
   if (!command) {
@@ -222,7 +222,7 @@ router.post('/pay-clients',async (req, res) => {
     axios.post(serverLink+"/tableOrders/"+resp.data["tableOrderId"]+"/bill");
   }
 
-  writeData(commands);
+  writeData(commands,dataFilePath);
 
   res.status(200).json({ message: 'Clients paid successfully', allClientsPaid });
 });

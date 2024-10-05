@@ -288,5 +288,155 @@
         "table": "66fdd7d50957f13982263fdd"
       }
     ]
+  },
+  {
+    "commandId": 1372,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 9,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186beca3",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "67011f739700e838b73f6e78"
+      }
+    ]
+  },
+  {
+    "commandId": 4483,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186bec8e",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186beca6",
+                "fullName": "Ice Tea (33cl)",
+                "shortName": "ice tea",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2022/04/11/08/52/iced-tea-7125271_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670121139700e838b73f6ec7"
+      }
+    ]
+  },
+  {
+    "commandId": 7349,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186bec6d",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670121589700e838b73f6f14"
+      }
+    ]
+  },
+  {
+    "commandId": 8453,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186bec8e",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "67012a429700e838b73f6fcd"
+      }
+    ]
+  },
+  {
+    "commandId": 1257,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66e8adac4fa2190a186bec8e",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "67012c809700e838b73f701c"
+      }
+    ]
   }
 ]
