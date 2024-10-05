@@ -124,6 +124,30 @@ app.get('/tables', async (req, res) => {
   }
 });
 
+
+app.post('/cancelOrder', async (req, res) => {
+  try {
+    console.log('Annuler commande');
+    const orderId = req.body;
+    console.log('Commande à annuler:', orderId);
+
+    let ordersData = readData(dataFilePath);
+    let reservationsData = readData(dataReservationFilePath);
+
+    // delete the reservation from the reservation file
+    reservationsData = reservationsData.filter(reservation => reservation.commandId !== orderId.commandId);
+    writeData(reservationsData, dataReservationFilePath);
+
+    ordersData = ordersData.filter(order => order.commandId !== orderId.commandId);
+    writeData(ordersData, dataFilePath);
+
+    res.status(201).json({ message: "Commande annulée avec succès" });
+  } catch (error) {
+    console.error('Erreur lors de l\'annulation de la commande:', error);
+    res.status(500).json({ message: "Erreur interne du serveur" });
+  }
+});
+
 app.use('/dining',diningRoutes);
 app.listen(PORT, () => {
   console.log(`Le serveur BFF écoute sur le port ${PORT}`);

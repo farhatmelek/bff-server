@@ -170,10 +170,10 @@
     ]
   },
   {
-    "commandId": 3821,
+    "commandId": 6433,
     "tables": [
       {
-        "tablePaid": false,
+        "tablePaid": true,
         "tableNumber": 1,
         "clients": [
           {
@@ -181,111 +181,22 @@
             "clientPaid": false,
             "items": [
               {
-                "_id": "66fc3a99057add0cf0b9657e",
-                "fullName": "Bottled coke (33cl)",
-                "shortName": "coke",
-                "price": 3.5,
+                "_id": "66fc3a99057add0cf0b9658a",
+                "fullName": "Spritz",
+                "shortName": "spritz",
+                "price": 5,
                 "category": "BEVERAGE",
-                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
-                "quantity": 1
+                "image": "https://cdn.pixabay.com/photo/2020/05/12/21/17/spritz-5164971_960_720.jpg",
+                "quantity": 2
               }
             ]
           },
           {
             "client": "2",
             "clientPaid": false,
-            "items": [
-              {
-                "_id": "66fc3a99057add0cf0b96548",
-                "fullName": "Homemade foie gras terrine",
-                "shortName": "foie gras",
-                "price": 18,
-                "category": "STARTER",
-                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
-                "quantity": 1
-              }
-            ]
+            "items": []
           }
-        ],
-        "table": "66fdd5ad0957f13982263fb1"
-      }
-    ]
-  },
-  {
-    "commandId": 47,
-    "tables": [
-      {
-        "tablePaid": false,
-        "tableNumber": 2,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": [
-              {
-                "_id": "66fc3a99057add0cf0b9657e",
-                "fullName": "Bottled coke (33cl)",
-                "shortName": "coke",
-                "price": 3.5,
-                "category": "BEVERAGE",
-                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
-                "quantity": 1
-              },
-              {
-                "_id": "66fc3a99057add0cf0b96581",
-                "fullName": "Ice Tea (33cl)",
-                "shortName": "ice tea",
-                "price": 3.5,
-                "category": "BEVERAGE",
-                "image": "https://cdn.pixabay.com/photo/2022/04/11/08/52/iced-tea-7125271_960_720.jpg",
-                "quantity": 1
-              }
-            ]
-          },
-          {
-            "client": "2",
-            "clientPaid": false,
-            "items": [
-              {
-                "_id": "66fc3a99057add0cf0b96548",
-                "fullName": "Homemade foie gras terrine",
-                "shortName": "foie gras",
-                "price": 18,
-                "category": "STARTER",
-                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
-                "quantity": 1
-              }
-            ]
-          }
-        ],
-        "table": "66fdd7b20957f13982263fd3"
-      }
-    ]
-  },
-  {
-    "commandId": 9960,
-    "tables": [
-      {
-        "tablePaid": false,
-        "tableNumber": 3,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": false,
-            "items": [
-              {
-                "_id": "66fc3a99057add0cf0b96569",
-                "fullName": "Brownie (home made)",
-                "shortName": "brownie",
-                "price": 6.5,
-                "category": "DESSERT",
-                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
-                "quantity": 1
-              }
-            ]
-          }
-        ],
-        "table": "66fdd7d50957f13982263fdd"
+        ]
       }
     ]
   },
