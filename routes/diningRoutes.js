@@ -35,7 +35,10 @@ router.get('/tables', async (req, res) => {
 router.get('/command/:commandId/tables', (req, res) => {
     const { commandId } = req.params;
     const data = readData(dataFilePath);
-  
+
+    console.log(`fetching tables for ${commandId}`);
+
+
     // Find the command by commandId
     const command = data.find(item => item.commandId == commandId);
     if (command) {
@@ -46,10 +49,10 @@ router.get('/command/:commandId/tables', (req, res) => {
 });
 
 router.post('/payment/byTable', (req, res) => {
-    console.log("payment by table");
     const commandId  = req.body.commandId;
     var selectedTables = []
     selectedTables = req.body.selectedTables;
+    console.log(`preparing the payment for commandId: ${commandId}`);
 
     const data = readData(dataFilePath);
     // Find the command by commandId
@@ -82,7 +85,7 @@ router.post('/payment/byTable', (req, res) => {
         bill.push(tableBill);
         
       });
-      console.log(({"tablesBill":bill,"commandTotal":commandTotal}));
+      
       res.json({"tablesBill":bill,"commandTotal":commandTotal});
     } else {
       res.status(404).json({ message: 'Command not found' });
@@ -92,8 +95,7 @@ router.post('/payment/byTable', (req, res) => {
 router.post('/payment/process/byTables', async (req,res)=>{
   const paidTables = req.body.paidTables;
   const commandId  = req.body.commandId;
-  console.log("payment for tables",paidTables);
-
+  console.log(`Processing payment for commandId: ${commandId}`);
   const data = readData(dataFilePath);
 
   const command = data.find(item => item.commandId == commandId);
@@ -135,7 +137,7 @@ router.get("/createCommands",async (req,res)=>{
 router.post('/add-command', async (req, res) => {
   const tablesNumber = req.body.tablesNumber;
   let customersCount = req.body.customersCount;
-
+  console.log(`Received request to add command with tables`);
   if (!Array.isArray(tablesNumber) || tablesNumber.some(num => typeof num !== 'number') || typeof customersCount !== 'number') {
     return res.status(400).json({ error: 'Invalid input' });
   }
@@ -144,7 +146,7 @@ router.post('/add-command', async (req, res) => {
   const commands = readData(dataFilePath);
   const reservations = readData(dataReservationFilePath);
   const commandId = generateCommandId();
-
+  console.log(`Generated new commandId: ${commandId}`);
   const newCommand = {
     commandId,
     tables: []
@@ -168,7 +170,7 @@ router.post('/add-command', async (req, res) => {
     newReservation.tables.push({
         tableNumber: tableNumber,
     });
-
+    console.log(`Processing table clients`);
 
     var clientNumber = 1;
     for (let k = 0; k < clientsForTable; k++) {
@@ -185,6 +187,9 @@ router.post('/add-command', async (req, res) => {
 
   commands.push(newCommand);
   reservations.push(newReservation);
+  // Log the final command and reservation that are being saved
+  console.log(`Saving new command`);
+  console.log(`Saving new reservation`);
 
   writeData(commands,dataFilePath);
   writeData(reservations,dataReservationFilePath);
@@ -197,6 +202,8 @@ router.post('/pay-clients',async (req, res) => {
   if (!commandId || !tableNumber || !Array.isArray(paidClients) || paidClients.length === 0) {
     return res.status(400).json({ error: 'Invalid input data' });
   }
+  console.log(`Received payment request`);
+
 
   let commands = readData(dataFilePath);
 
@@ -210,6 +217,8 @@ router.post('/pay-clients',async (req, res) => {
     return res.status(404).json({ error: 'Table not found' });
   }
 
+  console.log(`Marking clients as paid`);
+
   table.clients.forEach(client => {
     if (paidClients.includes(client.client)) {
       client.clientPaid = true;
@@ -222,7 +231,7 @@ router.post('/pay-clients',async (req, res) => {
     const resp = await axios.get(serverLink+"/tables/"+tableNumber);
     axios.post(serverLink+"/tableOrders/"+resp.data["tableOrderId"]+"/bill");
   }
-
+  console.log(`Payment process completed for the selected clients`);
   writeData(commands,dataFilePath);
 
   res.status(200).json({ message: 'Clients paid successfully', allClientsPaid });
