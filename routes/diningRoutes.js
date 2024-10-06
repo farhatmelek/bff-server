@@ -46,12 +46,12 @@ router.get('/command/:commandId/tables', (req, res) => {
 });
 
 router.post('/payment/byTable', (req, res) => {
+    console.log("payment by table");
     const commandId  = req.body.commandId;
     var selectedTables = []
     selectedTables = req.body.selectedTables;
 
     const data = readData(dataFilePath);
-  
     // Find the command by commandId
     const command = data.find(item => item.commandId === commandId);
     if (command) {
@@ -82,7 +82,7 @@ router.post('/payment/byTable', (req, res) => {
         bill.push(tableBill);
         
       });
-      
+      console.log(({"tablesBill":bill,"commandTotal":commandTotal}));
       res.json({"tablesBill":bill,"commandTotal":commandTotal});
     } else {
       res.status(404).json({ message: 'Command not found' });
@@ -92,6 +92,7 @@ router.post('/payment/byTable', (req, res) => {
 router.post('/payment/process/byTables', async (req,res)=>{
   const paidTables = req.body.paidTables;
   const commandId  = req.body.commandId;
+  console.log("payment for tables",paidTables);
 
   const data = readData(dataFilePath);
 
