@@ -148,6 +148,39 @@ app.post('/cancelOrder', async (req, res) => {
   }
 });
 
+
+app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
+  const { commandId, clientId, tableId } = req.params;
+  console.log(`Requête au back-end pour récupérer les commandes : commandId=${commandId}, clientId=${clientId}, tableId=${tableId}`);
+
+  try {
+    const data = await readData(dataFilePath);
+    console.log('Commandes:', data);
+    const order = data.find(item => item.commandId == commandId);
+    console.log('Commande:', order);
+    if (!order) {
+      return res.status(404).json({ message: 'Commande non trouvée' });
+    }
+    console.log('Commande:', order);
+
+    const table = order.tables.find(item => item.tableNumber == tableId);
+    if (!table) {
+      return res.status(404).json({ message: 'Table non trouvée' });
+    }
+    console.log('Table:', table);
+
+    //recuperer la liste des tous les clients avec des ids différent a commandId
+    const clients = table.clients.filter(item => item.client != clientId);
+
+    console.log('Clients:', clients);
+
+    return res.status(200).json(clients);
+  } catch (error) {
+    console.error(`Erreur lors de la requête au back-end pour la commande ${commandId}, client ${clientId}, table ${tableId}:`, error);
+    return res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
+
 app.use('/dining',diningRoutes);
 app.listen(PORT, () => {
   console.log(`Le serveur BFF écoute sur le port ${PORT}`);

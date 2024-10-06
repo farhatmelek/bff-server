@@ -201,50 +201,54 @@
     ]
   },
   {
-    "commandId": 1372,
+    "commandId": 3703,
     "tables": [
       {
-        "tablePaid": true,
-        "tableNumber": 9,
+        "tablePaid": false,
+        "tableNumber": 1,
         "clients": [
           {
             "client": "1",
             "clientPaid": false,
             "items": [
               {
-                "_id": "66e8adac4fa2190a186beca3",
-                "fullName": "Bottled coke (33cl)",
-                "shortName": "coke",
-                "price": 3.5,
-                "category": "BEVERAGE",
-                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
                 "quantity": 1
               }
             ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": []
           }
-        ],
-        "table": "67011f739700e838b73f6e78"
+        ]
       }
     ]
   },
   {
-    "commandId": 4483,
+    "commandId": 4678,
     "tables": [
       {
-        "tablePaid": true,
-        "tableNumber": 4,
+        "tablePaid": false,
+        "tableNumber": 1,
         "clients": [
           {
             "client": "1",
             "clientPaid": false,
             "items": [
               {
-                "_id": "66e8adac4fa2190a186bec8e",
-                "fullName": "Brownie (home made)",
-                "shortName": "brownie",
-                "price": 6.5,
-                "category": "DESSERT",
-                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
                 "quantity": 1
               }
             ]
@@ -254,34 +258,49 @@
             "clientPaid": false,
             "items": [
               {
-                "_id": "66e8adac4fa2190a186beca6",
-                "fullName": "Ice Tea (33cl)",
-                "shortName": "ice tea",
-                "price": 3.5,
-                "category": "BEVERAGE",
-                "image": "https://cdn.pixabay.com/photo/2022/04/11/08/52/iced-tea-7125271_960_720.jpg",
+                "_id": "66fc3a99057add0cf0b96551",
+                "fullName": "Homemade dill salmon gravlax",
+                "shortName": "salmon",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96551",
+                "fullName": "Homemade dill salmon gravlax",
+                "shortName": "salmon",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg",
                 "quantity": 1
               }
             ]
           }
         ],
-        "table": "670121139700e838b73f6ec7"
+        "table": "6701da0055ce9d790ab3f4ef"
       }
     ]
   },
   {
-    "commandId": 7349,
+    "commandId": 9405,
     "tables": [
       {
         "tablePaid": true,
-        "tableNumber": 4,
+        "tableNumber": 2,
         "clients": [
           {
             "client": "1",
-            "clientPaid": true,
+            "clientPaid": false,
             "items": [
               {
-                "_id": "66e8adac4fa2190a186bec6d",
+                "_id": "66fc3a99057add0cf0b96548",
                 "fullName": "Homemade foie gras terrine",
                 "shortName": "foie gras",
                 "price": 18,
@@ -290,63 +309,33 @@
                 "quantity": 1
               }
             ]
-          }
-        ],
-        "table": "670121589700e838b73f6f14"
-      }
-    ]
-  },
-  {
-    "commandId": 8453,
-    "tables": [
-      {
-        "tablePaid": true,
-        "tableNumber": 4,
-        "clients": [
+          },
           {
-            "client": "1",
-            "clientPaid": true,
+            "client": "2",
+            "clientPaid": false,
             "items": [
               {
-                "_id": "66e8adac4fa2190a186bec8e",
-                "fullName": "Brownie (home made)",
-                "shortName": "brownie",
-                "price": 6.5,
-                "category": "DESSERT",
-                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              },
+              {
+                "_id": "66fc3a99057add0cf0b96584",
+                "fullName": "Bottled water",
+                "shortName": "bottled water",
+                "price": 1,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2014/12/11/09/49/water-564048_960_720.jpg",
                 "quantity": 1
               }
             ]
           }
         ],
-        "table": "67012a429700e838b73f6fcd"
-      }
-    ]
-  },
-  {
-    "commandId": 1257,
-    "tables": [
-      {
-        "tablePaid": true,
-        "tableNumber": 4,
-        "clients": [
-          {
-            "client": "1",
-            "clientPaid": true,
-            "items": [
-              {
-                "_id": "66e8adac4fa2190a186bec8e",
-                "fullName": "Brownie (home made)",
-                "shortName": "brownie",
-                "price": 6.5,
-                "category": "DESSERT",
-                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
-                "quantity": 1
-              }
-            ]
-          }
-        ],
-        "table": "67012c809700e838b73f701c"
+        "table": "6701de6b55ce9d790ab3f4f7"
       }
     ]
   }
