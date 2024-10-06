@@ -64,7 +64,6 @@ app.post('/order', async (req, res) => {
 
 app.post('/validateOrder',async (req, res) => {
   try {
-
   const orderId = req.body;
   console.log('Commande à valider:', orderId);
 
@@ -99,6 +98,35 @@ app.post('/validateOrder',async (req, res) => {
     await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
     console.log('table order sent to the kitchen');
   }
+    for (let table of order.tables) {
+      for (let client of table.clients){
+        for(let item of client.items){
+          const bodyPrep = {
+            "tableNumber": table.tableNumber,
+            "itemsToBeCooked": [
+              {
+                "menuItemShortName": item.shortName,
+                "howMany": 1
+              }
+            ]
+          };
+         const response= await axios.post(`http://localhost:9500/kitchen/preparations`,bodyPrep);
+          console.log('preparation launched for each item in the kitchen');
+          // Parcourir chaque élément du tableau principal avec `for...of`
+          for (const tableOrder of response.data) {
+            // Parcourir chaque `preparedItem` dans `preparedItems`
+            for (const preparedItem of tableOrder.preparedItems) {
+              await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/start`);
+              console.log("Item is being cooked in kitchen");
+            }
+          }
+
+
+
+
+        }
+      }
+    }
 
     writeData(ordersData, dataFilePath);
     res.status(201).json({ message: "Commande validée avec succès" });
@@ -108,9 +136,7 @@ app.post('/validateOrder',async (req, res) => {
   }
 });
 
-app.post('/preparationPhase', async (req, res) => {
 
-});
 
 app.get('/tables', async (req, res) => {
   try {
@@ -127,7 +153,7 @@ app.get('/tables', async (req, res) => {
       }
     });
 
-    console.log('Tables:', response.data);
+   // console.log('Tables:', response.data);
     res.status(200).json(response.data);
   } catch (error) {
     console.error('Erreur lors de la requête au back-end:', error);
