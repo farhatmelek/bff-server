@@ -50,7 +50,7 @@ app.post('/order', async (req, res) => {
       return res.status(404).json({ message: "Commande non trouvée" });
     }
 
-    console.log('items:', data.find(item => item.commandId === order.orderNumber).tables[0].clients[0].items);
+  // console.log('items:', data.find(item => item.commandId === order.orderNumber).tables[0].clients[0].items.shortName);
     writeData(data, dataFilePath);
 
     // Répondre avec un statut de succès
@@ -92,12 +92,13 @@ app.post('/validateOrder',async (req, res) => {
           "howMany":  item.quantity
         };
         await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}`, itemBody);
-        console.log('item added to the table', table.table.tableNumber);
+        //console.log('item added to the table', table.table.tableNumber);
       }
     }
     await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
     console.log('table order sent to the kitchen');
   }
+  //lancement des preparation pour chaque item
     for (let table of order.tables) {
       for (let client of table.clients){
         for(let item of client.items){
@@ -111,15 +112,15 @@ app.post('/validateOrder',async (req, res) => {
             ]
           };
          const response= await axios.post(`http://localhost:9500/kitchen/preparations`,bodyPrep);
-          console.log('preparation launched for each item in the kitchen');
+          console.log('Lancement de la préparation de: ',item.shortName);
           // Parcourir chaque élément du tableau principal avec `for...of`
           for (const tableOrder of response.data) {
             // Parcourir chaque `preparedItem` dans `preparedItems`
             for (const preparedItem of tableOrder.preparedItems) {
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/start`);
-              console.log("Item is being cooked in kitchen");
+              console.log('Lancement de la cuisson de:',item.shortName);
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/finish`);
-              console.log("Item finished cooking");
+              console.log("le cuisson est terminée pour :",item.shortName);
             }
           }
 
@@ -190,7 +191,7 @@ app.post('/cancelOrder', async (req, res) => {
 
 app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
   const { commandId, clientId, tableId } = req.params;
-  console.log(`Requête au back-end pour récupérer les commandes : commandId=${commandId}, clientId=${clientId}, tableId=${tableId}`);
+  console.log(`Requête au back-end pour récupèrer les commandes : commandId=${commandId}, clientId=${clientId}, tableId=${tableId}`);
 
   try {
     const data = await readData(dataFilePath);
