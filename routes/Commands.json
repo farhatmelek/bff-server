@@ -338,5 +338,62 @@
         "table": "6701de6b55ce9d790ab3f4f7"
       }
     ]
+  },
+  {
+    "commandId": 5162,
+    "tables": [
+      {
+        "tablePaid": false,
+        "tableNumber": 4,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9658a",
+                "fullName": "Spritz",
+                "shortName": "spritz",
+                "price": 5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2020/05/12/21/17/spritz-5164971_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "67026931117eabe7c8d30218"
+      }
+    ]
   }
 ]

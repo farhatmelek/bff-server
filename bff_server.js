@@ -69,19 +69,13 @@ app.post('/validateOrder',async (req, res) => {
   console.log('Commande à valider:', orderId);
 
   let ordersData = readData(dataFilePath);
-  console.log('Commandes:', ordersData);
   let reservationsData = readData(dataReservationFilePath);
-  console.log('Réservations:', reservationsData);
-  console.log('orderId:', orderId.commandId);
 
   // delete the reservation from the reservation file
   reservationsData = reservationsData.filter(reservation => reservation.commandId !== orderId.commandId);
-  console.log('Réservations après suppression:', reservationsData);
   writeData(reservationsData, dataReservationFilePath);
-  console.log('Commande à valider:', ordersData.find(order => order.commandId === orderId));
 
   let order = ordersData.find(order => order.commandId === orderId.commandId);
-  console.log('Commande à valider:', order);
   for (let table of order.tables) {
     let clientsForTable = table.clients.length;
     let tableNumber = table.tableNumber;
@@ -91,6 +85,19 @@ app.post('/validateOrder',async (req, res) => {
     };
     const response = await axios.post( 'http://localhost:9500/dining/tableOrders', body);
     table.table= response.data["_id"]
+    for (let client of table.clients){
+      for (let item of client.items) {
+        const itemBody = {
+          "menuItemId": item._id,
+          "menuItemShortName": item.shortName,
+          "howMany":  item.quantity
+        };
+        await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}`, itemBody);
+        console.log('item added to the table', table.table.tableNumber);
+      }
+    }
+    await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
+    console.log('table order sent to the kitchen');
   }
 
     writeData(ordersData, dataFilePath);
@@ -99,6 +106,10 @@ app.post('/validateOrder',async (req, res) => {
     console.error('Erreur lors de la validation de la commande:', error);
     res.status(500).json({ message: "Erreur interne du serveur" });
   }
+});
+
+app.post('/preparationPhase', async (req, res) => {
+
 });
 
 app.get('/tables', async (req, res) => {
