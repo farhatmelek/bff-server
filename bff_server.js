@@ -49,8 +49,6 @@ app.post('/order', async (req, res) => {
     } else {
       return res.status(404).json({ message: "Commande non trouvée" });
     }
-
-    console.log('items:', data.find(item => item.commandId === order.orderNumber).tables[0].clients[0].items);
     writeData(data, dataFilePath);
 
     // Répondre avec un statut de succès
@@ -96,8 +94,8 @@ app.post('/validateOrder',async (req, res) => {
       }
     }
     await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
-    console.log('table order sent to the kitchen');
   }
+    console.log('tables orders are sent to the kitchen');
     for (let table of order.tables) {
       for (let client of table.clients){
         for(let item of client.items){
@@ -111,20 +109,17 @@ app.post('/validateOrder',async (req, res) => {
             ]
           };
          const response= await axios.post(`http://localhost:9500/kitchen/preparations`,bodyPrep);
-          console.log('preparation launched for each item in the kitchen');
+          //console.log('preparation launched for each item in the kitchen');
           // Parcourir chaque élément du tableau principal avec `for...of`
           for (const tableOrder of response.data) {
             // Parcourir chaque `preparedItem` dans `preparedItems`
             for (const preparedItem of tableOrder.preparedItems) {
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/start`);
-              console.log("Item is being cooked in kitchen");
+              //console.log("Item is being cooked in kitchen");
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/finish`);
-              console.log("Item finished cooking");
+              //console.log("Item finished cooking");
             }
           }
-
-
-
 
         }
       }
@@ -190,28 +185,22 @@ app.post('/cancelOrder', async (req, res) => {
 
 app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
   const { commandId, clientId, tableId } = req.params;
-  console.log(`Requête au back-end pour récupérer les commandes : commandId=${commandId}, clientId=${clientId}, tableId=${tableId}`);
+  console.log(`Requête au back-end pour récupérer les commandes`);
 
   try {
     const data = await readData(dataFilePath);
-    console.log('Commandes:', data);
     const order = data.find(item => item.commandId == commandId);
-    console.log('Commande:', order);
     if (!order) {
       return res.status(404).json({ message: 'Commande non trouvée' });
     }
-    console.log('Commande:', order);
 
     const table = order.tables.find(item => item.tableNumber == tableId);
     if (!table) {
       return res.status(404).json({ message: 'Table non trouvée' });
     }
-    console.log('Table:', table);
 
-    //recuperer la liste des tous les clients avec des ids différent a commandId
-    const clients = table.clients.filter(item => item.client != clientId);
-
-    console.log('Clients:', clients);
+    //recuperer la liste des tous les clients avec des ids différent a commandId and client.items.length > 0
+    const clients = table.clients.filter(client => client.client != clientId && client.items.length > 0);
 
     return res.status(200).json(clients);
   } catch (error) {

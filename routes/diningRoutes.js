@@ -85,7 +85,6 @@ router.post('/payment/byTable', (req, res) => {
         bill.push(tableBill);
         
       });
-      
       res.json({"tablesBill":bill,"commandTotal":commandTotal});
     } else {
       res.status(404).json({ message: 'Command not found' });

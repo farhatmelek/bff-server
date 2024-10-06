@@ -619,5 +619,108 @@
         "table": "6702e5bc117eabe7c8d302a4"
       }
     ]
+  },
+  {
+    "commandId": 9066,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 5,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              },
+              {
+                "_id": "66fc3a99057add0cf0b96572",
+                "fullName": "Fresh raspberries and peaches",
+                "shortName": "rasp and peaches",
+                "price": 12,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2020/05/15/17/28/fruit-plate-5174414_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "4",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96569",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "6702f3d7117eabe7c8d302ca"
+      },
+      {
+        "tablePaid": true,
+        "tableNumber": 6,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "6702f3d7117eabe7c8d302da"
+      }
+    ]
   }
 ]
