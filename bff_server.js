@@ -90,7 +90,7 @@ app.post('/validateOrder',async (req, res) => {
           "howMany":  item.quantity
         };
         await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}`, itemBody);
-        console.log('item added to the table', table.table);
+        //console.log('item added to the table', table.table.tableNumber);
       }
     }
     await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
@@ -109,15 +109,15 @@ app.post('/validateOrder',async (req, res) => {
             ]
           };
          const response= await axios.post(`http://localhost:9500/kitchen/preparations`,bodyPrep);
-          //console.log('preparation launched for each item in the kitchen');
+          console.log('preparation launched for each item in the kitchen');
           // Parcourir chaque élément du tableau principal avec `for...of`
           for (const tableOrder of response.data) {
             // Parcourir chaque `preparedItem` dans `preparedItems`
             for (const preparedItem of tableOrder.preparedItems) {
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/start`);
-              //console.log("Item is being cooked in kitchen");
+              console.log("Item is being cooked in kitchen");
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/finish`);
-              //console.log("Item finished cooking");
+              console.log("Item finished cooking");
             }
           }
 
@@ -199,7 +199,6 @@ app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
       return res.status(404).json({ message: 'Table non trouvée' });
     }
 
-    //recuperer la liste des tous les clients avec des ids différent a commandId and client.items.length > 0
     const clients = table.clients.filter(client => client.client != clientId && client.items.length > 0);
 
     return res.status(200).json(clients);
