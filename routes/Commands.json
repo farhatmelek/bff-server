@@ -722,5 +722,275 @@
         "table": "6702f3d7117eabe7c8d302da"
       }
     ]
+  },
+  {
+    "commandId": 2471,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 5,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96584",
+                "fullName": "Bottled water",
+                "shortName": "bottled water",
+                "price": 1,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2014/12/11/09/49/water-564048_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9654b",
+                "fullName": "Soft-boiled egg breaded with breadcrumbs and nuts",
+                "shortName": "soft-boiled egg",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2019/06/03/22/06/eggs-4250077_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96584",
+                "fullName": "Bottled water",
+                "shortName": "bottled water",
+                "price": 1,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2014/12/11/09/49/water-564048_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "4",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96569",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670301a3117eabe7c8d302f6"
+      },
+      {
+        "tablePaid": true,
+        "tableNumber": 6,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96554",
+                "fullName": "Crab maki with fresh mango",
+                "shortName": "crab maki",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/03/05/22/23/asian-1239269_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670301a4117eabe7c8d30304"
+      }
+    ]
+  },
+  {
+    "commandId": 8859,
+    "tables": [
+      {
+        "tablePaid": false,
+        "tableNumber": 5,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9654b",
+                "fullName": "Soft-boiled egg breaded with breadcrumbs and nuts",
+                "shortName": "soft-boiled egg",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2019/06/03/22/06/eggs-4250077_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "4",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9656c",
+                "fullName": "Valrhona chocolate declination with salted chocolate ice cream",
+                "shortName": "chocolate",
+                "price": 12,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2020/07/31/11/53/ice-cream-5452794_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tablePaid": false,
+        "tableNumber": 6,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "commandId": 8798,
+    "tables": [
+      {
+        "tablePaid": true,
+        "tableNumber": 5,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9654b",
+                "fullName": "Soft-boiled egg breaded with breadcrumbs and nuts",
+                "shortName": "soft-boiled egg",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2019/06/03/22/06/eggs-4250077_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9656c",
+                "fullName": "Valrhona chocolate declination with salted chocolate ice cream",
+                "shortName": "chocolate",
+                "price": 12,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2020/07/31/11/53/ice-cream-5452794_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "4",
+            "clientPaid": true,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b9657e",
+                "fullName": "Bottled coke (33cl)",
+                "shortName": "coke",
+                "price": 3.5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2019/11/14/15/47/coke-4626458_1280.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670304f1117eabe7c8d3033c"
+      },
+      {
+        "tablePaid": true,
+        "tableNumber": 6,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "66fc3a99057add0cf0b96548",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "670304f1117eabe7c8d3034a"
+      }
+    ]
   }
 ]
