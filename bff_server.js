@@ -106,7 +106,7 @@ app.post('/validateOrder',async (req, res) => {
             "itemsToBeCooked": [
               {
                 "menuItemShortName": item.shortName,
-                "howMany": 1
+                "howMany": item.quantity
               }
             ]
           };
@@ -118,6 +118,8 @@ app.post('/validateOrder',async (req, res) => {
             for (const preparedItem of tableOrder.preparedItems) {
               await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/start`);
               console.log("Item is being cooked in kitchen");
+              await axios.post(`http://localhost:9500/kitchen//preparedItems/${preparedItem._id}/finish`);
+              console.log("Item finished cooking");
             }
           }
 
