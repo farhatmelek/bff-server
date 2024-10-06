@@ -92,7 +92,7 @@ app.post('/validateOrder',async (req, res) => {
           "howMany":  item.quantity
         };
         await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}`, itemBody);
-        console.log('item added to the table', table.table.tableNumber);
+        console.log('item added to the table', table.table);
       }
     }
     await axios.post(`http://localhost:9500/dining/tableOrders/${table.table}/prepare`);
