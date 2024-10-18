@@ -187,6 +187,33 @@ app.post('/cancelOrder', async (req, res) => {
     res.status(500).json({ message: "Erreur interne du serveur" });
   }
 });
+app.post('/addEvent', async (req, res) => {
+  try {
+    const event = req.body.event;
+
+    // Validation de l'entrée
+    if (!event) {
+      return res.status(400).json({ message: "L'événement est requis." });
+    }
+
+    console.log('Ajouter un évènement:', event);
+
+    // Lire les données existantes
+    let eventsData = readData(dataEventsFilePath);
+
+    // Ajouter le nouvel événement
+    eventsData.push(event);
+
+    // Sauvegarder les données mises à jour dans le fichier
+    writeData(eventsData,dataEventsFilePath ); // Vous devez définir cette fonction
+
+    // Répondre avec succès
+    res.status(201).json({ message: "Événement ajouté avec succès" });
+  } catch (error) {
+    console.error('Erreur lors de l\'ajout de l\'événement:', error);
+    res.status(500).json({ message: "Erreur interne du serveur", error: error.message });
+  }
+});
 
 
 app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
@@ -229,6 +256,7 @@ app.listen(PORT, () => {
 
 const dataFilePath = path.join(__dirname, './routes/Commands.json');
 const dataReservationFilePath = path.join(__dirname, './routes/reservation.json');
+const dataEventsFilePath = path.join(__dirname, './routes/events.json');
 
 // Function to read JSON file
 function readData(path) {
