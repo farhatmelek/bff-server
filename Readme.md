@@ -4,9 +4,11 @@ Ce projet est un serveur Backend For Frontend (BFF) développé en Node.js avec 
 
 
 ## Installez les dépendances nécessaires :
-    ```bash
-    npm install
-    ```
+
+```bash
+npm install
+```
+    
 
 ## Lancement du serveur
 
@@ -14,3 +16,4 @@ Une fois les dépendances installées, vous pouvez lancer le serveur avec la com
 
 ```bash
 node ./bff_server.js
+```

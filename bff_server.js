@@ -4,9 +4,14 @@ const cors = require('cors');
 const diningRoutes = require('./routes/diningRoutes');
 const fs = require('fs');
 const path = require("path");
+const events = require("node:events");
+const http = require('http');
+const WebSocket = require('ws');
 
 const app = express();
 const PORT = 3003;
+
+const wss = new WebSocket.Server({ port: 3004 });
 
 app.use(cors());
 app.use(express.json());
@@ -183,6 +188,7 @@ app.post('/cancelOrder', async (req, res) => {
 });
 app.post('/addEvent', async (req, res) => {
   try {
+    console.log('Requête au back-end pour ajouter un événement');
     const event = req.body.event;
 
     // Validation de l'entrée
@@ -234,6 +240,95 @@ app.get('/orders/:commandId/:clientId/:tableId', async (req, res) => {
     return res.status(500).json({ message: 'Erreur interne du serveur' });
   }
 });
+
+app.get('/event', async (req, res) => {
+    try {
+        console.log('Requête au back-end pour récupérer les événements');
+        let eventData = readData(dataEventsFilePath);
+        res.status(200).json(eventData[0]);
+
+    } catch (error) {
+        console.error('Erreur lors de la requête au back-end:', error);
+        res.status(500).json({ message: 'Erreur interne du serveur' });
+    }
+});
+
+
+app.post('/event/menu', async (req, res) => {
+  try {
+    console.log('Requête au back-end pour ajouter un menu à un événement');
+    let eventData = readData(dataEventsFilePath);
+    if (!Array.isArray(eventData[0].menu)) {
+      eventData[0].menu = [];
+    }
+    if (!Array.isArray(eventData[0].BEVERAGES)) {
+      eventData[0].BEVERAGES = [];
+    }
+
+
+    const menuExists = eventData[0].menu.some(existingMenu => existingMenu.name === req.body.menu.name);
+    if (menuExists) {
+      return res.status(400).json({ message: 'Le menu existe déjà' });
+    }
+
+    const { items } = req.body.menu;
+    const beverages = items.BEVERAGES || [];
+    delete items.BEVERAGES;
+
+    eventData[0].menu.push({ ...req.body.menu, items });
+
+    beverages.forEach(drink => {
+      const drinkExists = eventData[0].BEVERAGES.some(existingDrink => existingDrink._id === drink._id);
+      if (!drinkExists) {
+        eventData[0].BEVERAGES.push(drink);
+      }
+    });
+
+    writeData(eventData, dataEventsFilePath);
+
+    res.status(201).json({ message: 'Menu ajouté à l\'événement avec succès' });
+  } catch (error) {
+    console.error('Erreur lors de la requête au back-end:', error);
+    res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
+
+app.delete('/event/menu/:menuName', async (req, res) => {
+  console.log('Requête au back-end pour supprimer un menu d un événement');
+    const menuName = req.params.menuName;
+    try {
+        let eventData = readData(dataEventsFilePath);
+        const menuIndex = eventData[0].menu.findIndex(menu => menu.name === menuName);
+        if (menuIndex === -1) {
+            return res.status(404).json({ message: 'Menu non trouvé' });
+        }
+        eventData[0].menu.splice(menuIndex, 1);
+        writeData(eventData, dataEventsFilePath);
+        res.status(200).json({ message: 'Menu supprimé avec succès' });
+    }catch (error) {
+        console.error('Erreur lors de la requête au back-end:', error);
+        res.status(500).json({ message: 'Erreur interne du serveur' });
+    }
+});
+
+wss.on('connection', ws => {
+  console.log('Client connecté via WebSocket');
+
+  // Envoyer le contenu initial du fichier dès la connexion
+  const initialData = readData(dataEventsFilePath);
+
+  console.log('Initial data:', initialData);
+  ws.send(JSON.stringify({ message: 'Initial file data', data: initialData[0] }));
+
+  fs.watch(dataEventsFilePath, (eventType) => {
+    console.log(`File event: ${eventType}`);
+    if (eventType === 'change') {
+      const updatedData = readData(dataEventsFilePath);
+      ws.send(JSON.stringify({ message: 'File updated', data: updatedData[0] }));
+    }
+  });
+});
+
 
 app.use('/dining',diningRoutes);
 app.listen(PORT, () => {

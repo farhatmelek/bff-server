@@ -992,5 +992,123 @@
         "table": "670304f1117eabe7c8d3034a"
       }
     ]
+  },
+  {
+    "commandId": 6635,
+    "tables": [
+      {
+        "tablePaid": false,
+        "tableNumber": 1,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b41506216174",
+                "fullName": "Brownie (home made)",
+                "shortName": "brownie",
+                "price": 6.5,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg",
+                "quantity": 1
+              },
+              {
+                "_id": "67117fe3ae84b41506216177",
+                "fullName": "Valrhona chocolate declination with salted chocolate ice cream",
+                "shortName": "chocolate",
+                "price": 12,
+                "category": "DESSERT",
+                "image": "https://cdn.pixabay.com/photo/2020/07/31/11/53/ice-cream-5452794_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b41506216153",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "3",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b41506216153",
+                "fullName": "Homemade foie gras terrine",
+                "shortName": "foie gras",
+                "price": 18,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2016/11/12/15/28/restaurant-1819024_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "4",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b41506216195",
+                "fullName": "Spritz",
+                "shortName": "spritz",
+                "price": 5,
+                "category": "BEVERAGE",
+                "image": "https://cdn.pixabay.com/photo/2020/05/12/21/17/spritz-5164971_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "671185c24e74164c357f0683"
+      },
+      {
+        "tablePaid": false,
+        "tableNumber": 2,
+        "clients": [
+          {
+            "client": "1",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b41506216156",
+                "fullName": "Soft-boiled egg breaded with breadcrumbs and nuts",
+                "shortName": "soft-boiled egg",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2019/06/03/22/06/eggs-4250077_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "client": "2",
+            "clientPaid": false,
+            "items": [
+              {
+                "_id": "67117fe3ae84b4150621615c",
+                "fullName": "Homemade dill salmon gravlax",
+                "shortName": "salmon",
+                "price": 16,
+                "category": "STARTER",
+                "image": "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "table": "671185c34e74164c357f0695"
+      }
+    ]
   }
 ]
