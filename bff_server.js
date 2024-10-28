@@ -329,6 +329,42 @@ wss.on('connection', ws => {
   });
 });
 
+app.delete('/event/drink/:drinkId', async (req, res) => {
+    console.log('Requête au back-end pour supprimer une boisson d un événement');
+    const drinkId = req.params.drinkId;
+    console.log('Boisson à supprimer:', drinkId);
+    try {
+        let eventData = readData(dataEventsFilePath);
+        const drinkIndex = eventData[0].BEVERAGES.findIndex(drink => drink._id === drinkId);
+        if (drinkIndex === -1) {
+          return res.status(404).json({ message: 'Boisson non trouvée' });
+        }
+        eventData[0].BEVERAGES.splice(drinkIndex, 1);
+        writeData(eventData, dataEventsFilePath);
+        res.status(200).json({ message: 'Boisson supprimée avec succès' });
+    }catch (error) {
+        console.error('Erreur lors de la requête au back-end:', error);
+        res.status(500).json({ message: 'Erreur interne du serveur' });
+    }
+});
+
+app.get('/event/validate', async (req, res) => {
+  try {
+    console.log('Requête au back-end pour valider un événement');
+    let eventData = readData(dataEventsFilePath);
+    let finalEvents = readData(dataFinalEvents);
+    finalEvents.push(eventData[0]);
+    writeData(finalEvents, dataFinalEvents);
+    eventData = [];
+    writeData(eventData, dataEventsFilePath);
+    res.status(201).json({ message: 'Evénement validé avec succès' });
+  } catch (error) {
+    console.error('Erreur lors de la requête au back-end:', error);
+    res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
+
+
 
 app.use('/dining',diningRoutes);
 app.listen(PORT, () => {
@@ -339,6 +375,7 @@ app.listen(PORT, () => {
 const dataFilePath = path.join(__dirname, './routes/Commands.json');
 const dataReservationFilePath = path.join(__dirname, './routes/reservation.json');
 const dataEventsFilePath = path.join(__dirname, './routes/events.json');
+const dataFinalEvents = path.join(__dirname, './routes/finalEvent.json');
 
 // Function to read JSON file
 function readData(path) {
