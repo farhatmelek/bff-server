@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "name": "test",
+    "date": "24/10/2024",
+    "menu": [
+      {
+        "name": "aaaaa",
+        "items": {
+          "STARTER": {
+            "_id": "671ab11dc8d3daf6d49f1115",
+            "fullName": "Soft-boiled egg breaded with breadcrumbs and nuts",
+            "shortName": "soft-boiled egg",
+            "price": 16,
+            "category": "STARTER",
+            "image": "https://cdn.pixabay.com/photo/2019/06/03/22/06/eggs-4250077_960_720.jpg"
+          },
+          "MAIN": {
+            "_id": "671ab11dc8d3daf6d49f1130",
+            "fullName": "Half cooked tuna and octopus grilled on the plancha",
+            "shortName": "half cooked tuna",
+            "price": 23,
+            "category": "MAIN",
+            "image": "https://cdn.pixabay.com/photo/2019/09/20/05/53/tuna-4490877_960_720.jpg"
+          },
+          "DESSERT": {
+            "_id": "671ab11dc8d3daf6d49f1145",
+            "fullName": "Speculoos tiramisu",
+            "shortName": "tiramisu",
+            "price": 10,
+            "category": "DESSERT",
+            "image": "https://cdn.pixabay.com/photo/2017/03/19/18/22/italian-food-2157246_960_720.jpg"
+          }
+        }
+      },
+      {
+        "name": "rrrrrrrrrr",
+        "items": {
+          "STARTER": {
+            "_id": "671ab11dc8d3daf6d49f1121",
+            "fullName": "Burrata Mozzarella",
+            "shortName": "burrata",
+            "price": 16,
+            "category": "STARTER",
+            "image": "https://cdn.pixabay.com/photo/2021/02/08/12/40/burrata-5994616_960_720.jpg"
+          },
+          "MAIN": {
+            "_id": "671ab11dc8d3daf6d49f1127",
+            "fullName": "Lasagna al forno",
+            "shortName": "lasagna",
+            "price": 18,
+            "category": "MAIN",
+            "image": "https://cdn.pixabay.com/photo/2017/02/15/15/17/meal-2069021_1280.jpg"
+          },
+          "DESSERT": {
+            "_id": "671ab11dc8d3daf6d49f1139",
+            "fullName": "Marmalade of Menton's lemon - Lemon cream - Limoncello jelly and sorbet - Homemade meringue",
+            "shortName": "lemon",
+            "price": 12,
+            "category": "DESSERT",
+            "image": "https://cdn.pixabay.com/photo/2018/05/01/18/19/eat-3366425_960_720.jpg"
+          }
+        }
+      }
+    ],
+    "BEVERAGES": [
+      {
+        "_id": "671ab11dc8d3daf6d49f1169",
+        "fullName": "Café",
+        "shortName": "café",
+        "price": 1.8,
+        "category": "BEVERAGE",
+        "image": "https://cdn.pixabay.com/photo/2014/12/11/02/56/coffee-563797_960_720.jpg"
+      },
+      {
+        "_id": "671ab11dc8d3daf6d49f1166",
+        "fullName": "Apple juice",
+        "shortName": "apple juice",
+        "price": 3,
+        "category": "BEVERAGE",
+        "image": "https://cdn.pixabay.com/photo/2016/11/28/22/07/punch-1866178_960_720.jpg"
+      },
+      {
+        "_id": "671ab11dc8d3daf6d49f1163",
+        "fullName": "Lemonade",
+        "shortName": "lemonade",
+        "price": 3,
+        "category": "BEVERAGE",
+        "image": "https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_960_720.jpg"
+      }
+    ]
+  }
+]

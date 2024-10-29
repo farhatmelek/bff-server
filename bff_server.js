@@ -316,8 +316,6 @@ wss.on('connection', ws => {
 
   // Envoyer le contenu initial du fichier dès la connexion
   const initialData = readData(dataEventsFilePath);
-
-  console.log('Initial data:', initialData);
   ws.send(JSON.stringify({ message: 'Initial file data', data: initialData[0] }));
 
   fs.watch(dataEventsFilePath, (eventType) => {
@@ -364,6 +362,22 @@ app.get('/event/validate', async (req, res) => {
   }
 });
 
+
+app.get('/event/menu/:name', async (req, res) => {
+  try {
+    console.log('Requête au back-end pour récupérer un menu d un événement');
+    const menuName = req.params.name;
+    let eventData = readData(dataEventsFilePath);
+    const menu = eventData[0].menu.find(menu => menu.name === menuName);
+    if (!menu) {
+      return res.status(404).json({ message: 'Menu non trouvé' });
+    }
+    res.status(200).json(menu);
+  }catch (error) {
+    console.error('Erreur lors de la requête au back-end:', error);
+    res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
 
 
 app.use('/dining',diningRoutes);
